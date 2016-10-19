@@ -77,7 +77,7 @@ end
 
 -- aux funcs
 local function empty(v)
-	return not v or (type(v)=='string' and len(v) == 0) or (type(v)=='table' and not next(v))
+	return not v or (type(v)=='string' and len(v) == 0) or (type(v)=='table' and not next(v)) or v == 0
 end
 --
 

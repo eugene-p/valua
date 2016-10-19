@@ -34,17 +34,18 @@ local test_values = {
         {},
         {3,46},
         "<script>alert('boohoo@email.com XSS');</script>",
-        "test-123_maria.2@newdomain.wow.movie"
+        "test-123_maria.2@newdomain.wow.movie",
+        0
 }
 
 local tests = {
 	{v:new().type("string").len(3,5),{1,false}},
 	{v:new().type("number").len(3,5), {1,false}},
         {v:new().type("table").empty(),{15,true,16,false,1,false}},
-	{v:new().not_empty(),{2,true,3,false,4,false,16,true,5,true,6,true}},
+	{v:new().not_empty(),{2,true,3,false,4,false,16,true,5,true,6,true, 19, false}},
 	{v:new().len(2,10),{2,true}},
 	{v:new().type("number"),{2,false}},
-	{v:new().empty(),{3,true,4,true,5,false,6,false}},
+	{v:new().empty(),{3,true,4,true,5,false,6,false, 19, true}},
         {v:new().boolean(),{1,false,5,true}},
         {v:new().compare("hey"),{1,false,2,true}},
         {v:new().number().min(45),{2,false,6,false,7,true}},
